@@ -4,7 +4,7 @@ services:
 #**************************************************************
 #               APLICAÇÃO FRONTEND
 #**************************************************************
-  frontUse:
+  frontuse:
     image: 'httpd:latest'
     container_name: frontendUse
     ports:
@@ -18,7 +18,7 @@ services:
 #**************************************************************
 #               APLICAÇÃO BACKEND
 #**************************************************************
-  backUse:
+  backuse:
     build: 
       context: .
       dockerfile: ./backend/Dockerfile
