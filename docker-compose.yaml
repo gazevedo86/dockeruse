@@ -27,7 +27,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - /nfs/general/backenduse:/var/www/html
+      - /nfs/general/useEduBack:/var/www/html
     networks:
     - app-network
  
