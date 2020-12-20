@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+#**************************************************************
+#               APLICAÇÃO FRONTEND
+#**************************************************************
+  front:
+    image: 'httpd:latest'
+    container_name: frontendUse
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+        - /nfs/general/htmluse:/usr/local/apache2/htdocs
+    restart: always
+    networks:
+      - app-network
+#**************************************************************
+#               APLICAÇÃO BACKEND
+#**************************************************************
+  laravel-app:
+    build: 
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: backendUse
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - /nfs/general/backenduse:/var/www/html
+    networks:
+    - app-network
+ 
+networks:
+  app-network:
+    driver: bridge
